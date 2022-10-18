@@ -1,0 +1,67 @@
+﻿<Window x:Class="GSMSoftware.MVVM.View.LogsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GSMSoftware.MVVM.View"
+        xmlns:vm="clr-namespace:GSMSoftware.MVVM.ViewModel"
+        mc:Ignorable="d"
+        Title="GSM Software" Height="350" Width="400"
+        d:DataContext="{d:DesignInstance vm:LogsViewModel,
+                                     IsDesignTimeCreatable=False}"
+        WindowStyle="None" 
+        ResizeMode="NoResize"
+        Background="#1d2128"
+        Foreground="White" Topmost="True">
+    <Window.DataContext>
+        <vm:LogsViewModel/>
+    </Window.DataContext>
+    <Grid>
+        <DockPanel>
+            <Border DockPanel.Dock="Top" Background="#1d2128" MouseLeftButtonDown="Border_MouseLeftButtonDown" Margin="5">
+                <Grid VerticalAlignment="Center">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock Text="GSM SOFTWARE | LOGS" TextAlignment="Center" Margin="10 0 0 0" VerticalAlignment="Center"
+                           FontSize="15" FontWeight="Light"/>
+                   
+
+                    <StackPanel Grid.Column="2" Orientation="Horizontal" HorizontalAlignment="Right">
+                        <Button x:Name="MinimizeBttn"
+                        Content="🗕"
+                        Grid.Column="2"
+                        Style="{DynamicResource TitlebarButtonStyle}" Click="MinimizeBttn_Click"/>
+
+                        <Button x:Name="MaximizedBttn"
+                        IsEnabled="False"
+                        Content="🗖"
+                        Style="{DynamicResource TitlebarButtonStyle}"
+                        Grid.Column="3"/>
+
+                        <Button x:Name="CloseBttn"
+                        Content="⨉"
+                        Style="{DynamicResource TitlebarButtonStyle}"
+                        Grid.Column="4"
+                        Margin="0 0 8 0" Click="CloseBttn_Click"/>
+                    </StackPanel>
+                </Grid>
+            </Border>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <StackPanel>
+                    <Button Content="Clear" Command="{Binding ClearLogsCommand}"/>
+                </StackPanel>
+                <TextBox Text="{Binding GlobalViewModel.GSMLogs}" Grid.Row="1"/>
+            </Grid>
+        </DockPanel>
+        
+    </Grid>
+</Window>
