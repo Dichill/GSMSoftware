@@ -113,7 +113,7 @@
                     <Border Width="200" Grid.Row="1" Margin="0 16 0 0" Background="#1f2430" CornerRadius="6" Padding="10" Cursor="Hand">
                         <DockPanel>
                             <StackPanel DockPanel.Dock="Left">
-                                <TextBlock Text="+63 9273472681" FontWeight="bold" />
+                                <TextBlock Text="+63 00000000" FontWeight="bold" />
                                 <TextBlock Text="October 16, 2022 | 12:36 PM" FontSize="10"/>
                             </StackPanel>
                         </DockPanel>
